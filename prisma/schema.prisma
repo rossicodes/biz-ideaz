@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model companies {
+  name               String?
+  number             String?
+  status             String?
+  address_1          String?
+  address_2          String?
+  town               String?
+  county             String?
+  country            String?
+  postcode           String?
+  incorporation_date String?
+  accounts_due_date  String?
+  accounts_last_date String?
+  accounts_category  String?
+  sic_code_1         String?
+  sic_code_2         String?
+  sic_code_3         String?
+  sic_code_4         String?
+  uri                String?
+  id                 Int     @default(autoincrement())
+  flag               Boolean @default(false)
+  accounts_link_1    String?
+  accounts_link_2    String?
+
+  @@ignore
+}
+
+model companies_full {
+  name               String?
+  number             String?
+  status             String?
+  address_1          String?
+  address_2          String?
+  town               String?
+  county             String?
+  country            String?
+  postcode           String?
+  incorporation_date String?
+  accounts_due_date  String?
+  accounts_last_date String?
+  accounts_category  String?
+  sic_code_1         String?
+  sic_code_2         String?
+  sic_code_3         String?
+  sic_code_4         String?
+  uri                String?
+  id                 Int      @id @unique @default(autoincrement())
+  flag               Boolean?
+  accounts_link      String?
+  website_url        String?
+  profit             String?
+  loss               String?
+  turnover           String?
+  accounts           String?
+  cost_of_sales      String?
+  business_summary   String?
+}
+
+model ecomm {
+  name               String?
+  number             String?
+  status             String?
+  address_1          String?
+  address_2          String?
+  town               String?
+  county             String?
+  country            String?
+  postcode           String?
+  incorporation_date String?
+  accounts_due_date  String?
+  accounts_last_date String?
+  accounts_category  String?
+  sic_code_1         String?
+  sic_code_2         String?
+  sic_code_3         String?
+  sic_code_4         String?
+  uri                String?
+  id                 Int      @unique @default(autoincrement())
+  flag               Boolean?
+  accounts_link_1    String?
+  website_url        String?
+  profit             String?
+  loss               String?
+  turnover           String?
+  accounts           String?
+  cost_of_sales      String?
+  business_summary   String?
+  accounts_link_2    String?
+  gross_profit       String?
+  principal_activity String?
+  admin_expenses     String?
+  slug               String?  @unique
+  accounts_type_1    String?
+  accounts_type_2    String?
+  website_1          String?  @map(" website_1")
+  shortlist          Boolean?
+  reviewed           Boolean?
+  accounts_retrieved Boolean? @default(false)
+}

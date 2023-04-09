@@ -1,4 +1,8 @@
 import './globals.css'
+import Navbar from './components/navbar'
+import Footer from './components/footer'
+import Toast from './components/Toast'
+
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
-    </html>
+      <body className="bg-gray-900 text-white">
+        <Toast />
+        <Navbar />
+        <div className="container h-full max-w-7xl mx-auto mb-auto px-8">{children}
+        </div>
+        <Footer />
+      </body>
+    </html >
   )
 }
